@@ -14,9 +14,35 @@ const bodyFont = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: "Campaign Keep",
+  title: {
+    default: "Campaign Keep",
+    template: "%s | Campaign Keep",
+  },
   description:
-    "All-in-one campaign platform for tabletop RPG parties. Run lore, sessions, handouts, characters, and player diaries in one place.",
+    "A D&D-first campaign platform that brings lore, session prep, character sheets, handouts, and player notes into one cohesive experience.",
+  applicationName: "Campaign Keep",
+  keywords: [
+    "Next.js",
+    "Prisma",
+    "PostgreSQL",
+    "D&D",
+    "tabletop RPG",
+    "campaign manager",
+    "portfolio project",
+  ],
+  openGraph: {
+    title: "Campaign Keep",
+    description:
+      "A D&D-first campaign platform that brings lore, session prep, character sheets, handouts, and player notes into one cohesive experience.",
+    siteName: "Campaign Keep",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Campaign Keep",
+    description:
+      "A D&D-first campaign platform that brings lore, session prep, character sheets, handouts, and player notes into one cohesive experience.",
+  },
 };
 
 export default function RootLayout({

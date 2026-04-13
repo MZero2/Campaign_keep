@@ -77,7 +77,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
             </Link>
           </p>
           <p className="mt-3 text-xs text-neutral-500">
-            Demo: `master@campaignkeep.dev` / `demo1234`
+            Demo seed credentials are documented in the README for local portfolio review.
           </p>
         </CardContent>
       </Card>
