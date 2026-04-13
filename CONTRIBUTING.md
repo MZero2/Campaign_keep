@@ -2,6 +2,10 @@
 
 Thanks for taking an interest in Campaign Keep.
 
+This repository is primarily maintained as a portfolio project and is currently not open to unsolicited external code contributions or reuse.
+
+If you want to discuss the project, architecture, or collaboration opportunities, please contact the repository owner first.
+
 ## Development Workflow
 
 1. Fork the repository
@@ -34,6 +38,7 @@ npm run build
 - Avoid committing secrets or local environment files
 - Prefer data-driven additions over hardcoded UI logic where possible
 - If adding D&D catalog data, keep the seed and schema aligned
+- Do not assume public visibility means open-source reuse rights
 
 ## Design Notes
 

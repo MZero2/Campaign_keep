@@ -4,6 +4,12 @@ Campaign Keep is a D&D-first web application for tabletop RPG groups who want on
 
 This repository is presented as a product-minded full-stack portfolio project. The focus is not only on shipping features, but on structuring the app the way a real SaaS MVP would be built: modular routes, role-aware permissions, seeded reference data, and a UI direction that feels intentional rather than purely utilitarian.
 
+## Portfolio Notice
+
+This repository is public so recruiters and reviewers can inspect the code and product direction.
+
+It is not open source. Reuse, redistribution, deployment, modification, or derivative commercial use is not permitted without explicit written permission. See [LICENSE](./LICENSE).
+
 ## What It Does
 
 - Authentication with session-based login and registration
@@ -151,4 +157,4 @@ It is intentionally not a toy CRUD app. The app balances domain-specific modelin
 
 ## License
 
-MIT
+All rights reserved. Publicly visible for portfolio review only.
