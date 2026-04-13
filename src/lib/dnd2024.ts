@@ -566,3 +566,298 @@ export function normalizeFeatList(values: string[]) {
 
   return feats;
 }
+
+export type DndSpeciesOption = {
+  key: string;
+  label: string;
+  speed: number;
+  description: string;
+  traits: string[];
+};
+
+export const DND_2024_SPECIES: DndSpeciesOption[] = [
+  {
+    key: "human",
+    label: "Human",
+    speed: 30,
+    description: "Versatile, social, adaptable. Clean baseline for almost any build.",
+    traits: ["Resourceful", "Skilled", "Flexible culture"],
+  },
+  {
+    key: "elf",
+    label: "Elf",
+    speed: 30,
+    description: "Graceful and perceptive, tuned for finesse, magic, and ancient lore.",
+    traits: ["Darkvision", "Keen Senses", "Fey ancestry"],
+  },
+  {
+    key: "dwarf",
+    label: "Dwarf",
+    speed: 30,
+    description: "Sturdy and relentless, excellent for frontline roles and divine traditions.",
+    traits: ["Darkvision", "Dwarven resilience", "Stonecunning flavor"],
+  },
+  {
+    key: "halfling",
+    label: "Halfling",
+    speed: 30,
+    description: "Fortunate, nimble, and brave. Great for rogues, bards, and clever supports.",
+    traits: ["Brave", "Luck", "Nimble movement"],
+  },
+  {
+    key: "gnome",
+    label: "Gnome",
+    speed: 30,
+    description: "Quick-witted and magically curious, ideal for inventive or arcane characters.",
+    traits: ["Darkvision", "Gnomish cunning", "Inventive flavor"],
+  },
+  {
+    key: "dragonborn",
+    label: "Dragonborn",
+    speed: 30,
+    description: "Martial presence and draconic power, perfect for bold leaders and strikers.",
+    traits: ["Breath weapon", "Draconic resistance", "Intimidating presence"],
+  },
+  {
+    key: "orc",
+    label: "Orc",
+    speed: 30,
+    description: "Explosive mobility and durability, built for aggressive melee pressure.",
+    traits: ["Adrenaline Rush", "Darkvision", "Relentless edge"],
+  },
+  {
+    key: "tiefling",
+    label: "Tiefling",
+    speed: 30,
+    description: "Infernal heritage, strong identity, and a natural fit for charisma casters.",
+    traits: ["Darkvision", "Fiendish legacy", "Arcane flavor"],
+  },
+];
+
+export type DndOriginOption = {
+  key: string;
+  label: string;
+  featName: string;
+  skills: string[];
+  description: string;
+  flavor: string;
+};
+
+export const DND_2024_ORIGINS: DndOriginOption[] = [
+  {
+    key: "acrobat",
+    label: "Acrobat",
+    featName: "Alert",
+    skills: ["Acrobatics", "Performance"],
+    description: "Fast feet, stage presence, and split-second reaction time.",
+    flavor: "You learned to survive under eyes, applause, and danger.",
+  },
+  {
+    key: "artisan",
+    label: "Artisan",
+    featName: "Crafter",
+    skills: ["Investigation", "Persuasion"],
+    description: "Methodical maker with an eye for tools, structure, and value.",
+    flavor: "Your hands know patience, process, and exacting work.",
+  },
+  {
+    key: "charlatan",
+    label: "Charlatan",
+    featName: "Skilled",
+    skills: ["Deception", "Sleight of Hand"],
+    description: "Masks, confidence, and flexible identities in every room.",
+    flavor: "You know how to sell a lie before anyone notices the seams.",
+  },
+  {
+    key: "criminal",
+    label: "Criminal",
+    featName: "Alert",
+    skills: ["Stealth", "Sleight of Hand"],
+    description: "Street-hardened, sharp, and always watching for a line of escape.",
+    flavor: "You learned fast because slow people got caught.",
+  },
+  {
+    key: "guard",
+    label: "Guard",
+    featName: "Tough",
+    skills: ["Athletics", "Insight"],
+    description: "Disciplined, alert, and used to holding a line under pressure.",
+    flavor: "Duty shaped your instincts long before adventure did.",
+  },
+  {
+    key: "hermit",
+    label: "Hermit",
+    featName: "Healer",
+    skills: ["Medicine", "Religion"],
+    description: "Quiet devotion, study, and healing away from the world.",
+    flavor: "Silence taught you to notice what others miss.",
+  },
+  {
+    key: "noble",
+    label: "Noble",
+    featName: "Lucky",
+    skills: ["History", "Persuasion"],
+    description: "Privilege, education, and social gravity carried into the field.",
+    flavor: "Doors opened for you before you ever touched the handle.",
+  },
+  {
+    key: "sage",
+    label: "Sage",
+    featName: "Magic Initiate",
+    skills: ["Arcana", "History"],
+    description: "Study-first origin for scholars, mages, and occult problem-solvers.",
+    flavor: "You know how dangerous knowledge becomes when it works.",
+  },
+  {
+    key: "soldier",
+    label: "Soldier",
+    featName: "Savage Attacker",
+    skills: ["Athletics", "Intimidation"],
+    description: "Battle drills, hard travel, and direct violence in service of a cause.",
+    flavor: "You were forged by orders, scars, and repetition.",
+  },
+  {
+    key: "wayfarer",
+    label: "Wayfarer",
+    featName: "Musician",
+    skills: ["Insight", "Survival"],
+    description: "Roadwise, social, and comfortable wherever the fire gets lit.",
+    flavor: "You belong to the road more than to any one place.",
+  },
+];
+
+export const DND_2024_CLASS_SKILL_RULES: Record<string, { count: number; options: string[] }> = {
+  Barbarian: { count: 2, options: ["Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"] },
+  Bard: { count: 3, options: [...DND_2024_SKILLS] },
+  Cleric: { count: 2, options: ["History", "Insight", "Medicine", "Persuasion", "Religion"] },
+  Druid: { count: 2, options: ["Arcana", "Animal Handling", "Insight", "Medicine", "Nature", "Perception", "Religion", "Survival"] },
+  Fighter: { count: 2, options: ["Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation", "Perception", "Survival"] },
+  Monk: { count: 2, options: ["Acrobatics", "Athletics", "History", "Insight", "Religion", "Stealth"] },
+  Paladin: { count: 2, options: ["Athletics", "Insight", "Intimidation", "Medicine", "Persuasion", "Religion"] },
+  Ranger: { count: 3, options: ["Animal Handling", "Athletics", "Insight", "Investigation", "Nature", "Perception", "Stealth", "Survival"] },
+  Rogue: { count: 4, options: ["Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation", "Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"] },
+  Sorcerer: { count: 2, options: ["Arcana", "Deception", "Insight", "Intimidation", "Persuasion", "Religion"] },
+  Warlock: { count: 2, options: ["Arcana", "Deception", "History", "Intimidation", "Investigation", "Nature", "Religion"] },
+  Wizard: { count: 2, options: ["Arcana", "History", "Insight", "Investigation", "Medicine", "Religion"] },
+};
+
+export const DND_2024_CLASS_LOADOUTS: Record<
+  string,
+  {
+    weaponIds: string[];
+    armorIds: string[];
+    gearIds: string[];
+    spellIds: string[];
+    priorityAbilities: Array<keyof Record<"str" | "dex" | "con" | "int" | "wis" | "cha", number>>;
+  }
+> = {
+  Barbarian: {
+    weaponIds: ["greataxe", "handaxe", "javelin"],
+    armorIds: [],
+    gearIds: ["backpack", "bedroll", "rope-hempen-50-ft"],
+    spellIds: [],
+    priorityAbilities: ["str", "con", "dex", "wis", "cha", "int"],
+  },
+  Bard: {
+    weaponIds: ["rapier", "dagger", "shortsword"],
+    armorIds: ["chain-shirt"],
+    gearIds: ["backpack", "bedroll"],
+    spellIds: ["vicious-mockery", "mage-hand", "healing-word", "faerie-fire", "detect-magic"],
+    priorityAbilities: ["cha", "dex", "con", "wis", "int", "str"],
+  },
+  Cleric: {
+    weaponIds: ["mace", "quarterstaff"],
+    armorIds: ["chain-shirt", "shield"],
+    gearIds: ["holy-symbol", "backpack", "healers-kit"],
+    spellIds: ["guidance", "sacred-flame", "bless", "cure-wounds", "healing-word"],
+    priorityAbilities: ["wis", "con", "str", "dex", "cha", "int"],
+  },
+  Druid: {
+    weaponIds: ["club", "dagger", "quarterstaff"],
+    armorIds: ["shield"],
+    gearIds: ["backpack", "rope-hempen-50-ft"],
+    spellIds: ["guidance", "shillelagh", "cure-wounds", "faerie-fire", "detect-magic"],
+    priorityAbilities: ["wis", "con", "dex", "int", "cha", "str"],
+  },
+  Fighter: {
+    weaponIds: ["longsword", "shortsword", "crossbow-light"],
+    armorIds: ["chain-mail", "shield"],
+    gearIds: ["backpack", "bedroll", "torch"],
+    spellIds: [],
+    priorityAbilities: ["str", "con", "dex", "wis", "cha", "int"],
+  },
+  Monk: {
+    weaponIds: ["quarterstaff", "dagger", "spear"],
+    armorIds: [],
+    gearIds: ["backpack", "bedroll"],
+    spellIds: [],
+    priorityAbilities: ["dex", "wis", "con", "str", "int", "cha"],
+  },
+  Paladin: {
+    weaponIds: ["longsword", "mace", "javelin"],
+    armorIds: ["chain-mail", "shield"],
+    gearIds: ["holy-symbol", "backpack", "bedroll"],
+    spellIds: ["bless", "cure-wounds", "detect-magic"],
+    priorityAbilities: ["str", "cha", "con", "wis", "dex", "int"],
+  },
+  Ranger: {
+    weaponIds: ["longbow", "shortsword", "dagger"],
+    armorIds: ["chain-shirt"],
+    gearIds: ["backpack", "rope-hempen-50-ft", "torch"],
+    spellIds: ["cure-wounds", "detect-magic", "faerie-fire"],
+    priorityAbilities: ["dex", "wis", "con", "str", "int", "cha"],
+  },
+  Rogue: {
+    weaponIds: ["shortsword", "rapier", "dagger"],
+    armorIds: ["chain-shirt"],
+    gearIds: ["thieves-tools", "backpack", "torch"],
+    spellIds: [],
+    priorityAbilities: ["dex", "cha", "con", "wis", "int", "str"],
+  },
+  Sorcerer: {
+    weaponIds: ["dagger", "quarterstaff"],
+    armorIds: [],
+    gearIds: ["arcane-focus", "backpack"],
+    spellIds: ["fire-bolt", "ray-of-frost", "magic-missile", "shield", "burning-hands"],
+    priorityAbilities: ["cha", "con", "dex", "wis", "int", "str"],
+  },
+  Warlock: {
+    weaponIds: ["dagger", "quarterstaff", "crossbow-light"],
+    armorIds: ["chain-shirt"],
+    gearIds: ["arcane-focus", "backpack"],
+    spellIds: ["eldritch-blast", "minor-illusion", "detect-magic", "shield", "chill-touch"],
+    priorityAbilities: ["cha", "con", "dex", "wis", "int", "str"],
+  },
+  Wizard: {
+    weaponIds: ["dagger", "quarterstaff"],
+    armorIds: [],
+    gearIds: ["arcane-focus", "spellbook", "backpack"],
+    spellIds: ["fire-bolt", "mage-hand", "magic-missile", "shield", "detect-magic"],
+    priorityAbilities: ["int", "con", "dex", "wis", "cha", "str"],
+  },
+};
+
+export type AbilityKey = "str" | "dex" | "con" | "int" | "wis" | "cha";
+
+export const ABILITY_KEYS: AbilityKey[] = ["str", "dex", "con", "int", "wis", "cha"];
+
+const ABILITY_LABELS: Record<AbilityKey, string> = {
+  str: "STR",
+  dex: "DEX",
+  con: "CON",
+  int: "INT",
+  wis: "WIS",
+  cha: "CHA",
+};
+
+export function abilityLabel(key: AbilityKey) {
+  return ABILITY_LABELS[key];
+}
+
+export function slugifyCatalogName(name: string) {
+  return name
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
